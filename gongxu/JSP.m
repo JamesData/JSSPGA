@@ -7,23 +7,23 @@
 % GGAP       - 代沟(Generation gap)
 % XOVR       - 交叉率
 % MUTR       - 变异率
-%%
 
-function [MinVal,P] = JSP(T,Jm,NIND,MAXGEN,GGAP,XOVR,MUTR)
 % 比如 MinVal = JSP(T,Jm,40,50,0.9,0.8,0.6)
 % NIND=60;        个体数目(Number of individuals)
 % MAXGEN=500;     最大遗传代数(Maximum number of generations)
 % GGAP=0.9;       代沟(Generation gap)
 % XOVR=0.8;       交叉率
 % MUTR=0.6;       变异率
+%%
 
-
+function [MinVal,P] = JSP(T,Jm,NIND,MAXGEN,GGAP,XOVR,MUTR)
 
 [PNumber,MNumber]=size(T);              % PNumber工件数量   % MNumber单个工件工序的数量
 gen=0;                                  % 代计数器
 trace=zeros(2, MAXGEN);                 % 寻优结果的初始值
 
 % 初始化群
+
 % 基于调度优先级的编码方法：每个基因对应一道工序，代表该工序在进行调度操作时的处理优先级。
 % 例如一个3!3问题，则染色体用1-3的整数表示为： [1 3 2 1 1 3 3 2 2]
 % 基因与工序的对应关系如下：
@@ -32,11 +32,10 @@ trace=zeros(2, MAXGEN);                 % 寻优结果的初始值
 % 其中Pij表示第i个零件的第j道工序
 WNumber=PNumber*MNumber;                % 工序总数量
 Chrom=zeros(NIND,WNumber);              % 个体集合矩阵
-Number=zeros(1,PNumber);
+Number=zeros(1,PNumber);                % 初始化染色体集合矩阵临时变量
 for i=1:PNumber
     Number(i)=MNumber;
 end
-
 % 随机生成工序序列
 for j=1:NIND
     WPNumberTemp=Number;
@@ -89,7 +88,7 @@ end
 PVal=Val1;                  % 工序时间
 P=Val2;                     % 工序
 
-% 计算解的变化
+% 显示解的变化
 figure(1);
 hold on;
 plot([0,0],[0,0]);

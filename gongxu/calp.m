@@ -1,5 +1,4 @@
-function P=calp(S,PNumber)
-
+%% function P=calp(S,PNumber)
 % 功能说明：          根据基因S,计算调度工序P
 % 输入参数：
 %        S           为基因  
@@ -7,14 +6,14 @@ function P=calp(S,PNumber)
 % 输出参数: 
 %        P           为输出的调度工序 
 %                    比如数字102表示工件10的工序3
-
+%%
+function P=calp(S,PNumber)
 
 WNumber=length(S);%工序总个数
 MNumber=WNumber/PNumber;
 if MNumber~=fix(MNumber)
     error('input parameters disagree')
 end
-
 
 %初始化
 temp=zeros(1,PNumber);

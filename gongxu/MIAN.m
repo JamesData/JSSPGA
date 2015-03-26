@@ -1,6 +1,6 @@
 %% FT (10*10) 最优930
 % MinVal = JSP(T,Jm,40,200,0.9,0.8,0.6);
-% T          - 各工件各工序使用的时间
+% T          - 各工件各工序使用的时间，行为工件数
 % Jm         - 各工件各工序使用的机器
 % NIND       - 个体数目(Number of individuals)
 % MAXGEN     - 最大遗传代数(Maximum number of generations)
